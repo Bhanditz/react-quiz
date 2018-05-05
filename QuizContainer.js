@@ -53,7 +53,12 @@ var QuizContainer = function (_React$Component) {
       _this.setState(_extends({}, _this.state, {
         answers: _extends({}, _this.state.answers, _defineProperty({}, _this.state.currentQuestionIndex, selectedAnswer)) }));
     }, _this.onNext = function () {
-      return _this.setState({
+      var onChange = _this.props.onChange;
+      if (typeof onChange === "function") {
+        onChange();
+      }
+
+      _this.setState({
         currentQuestionIndex: _this.state.currentQuestionIndex + 1
       });
     }, _temp), _possibleConstructorReturn(_this, _ret);
